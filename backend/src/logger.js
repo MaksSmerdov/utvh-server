@@ -1,8 +1,8 @@
 import winston from 'winston';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import DailyRotateFile from 'winston-daily-rotate-file'; // Импортируем winston-daily-rotate-file
+import {fileURLToPath} from 'url';
+import DailyRotateFile from 'winston-daily-rotate-file';
 
 // Определяем текущую директорию
 const __filename = fileURLToPath(import.meta.url);
@@ -15,7 +15,7 @@ if (!fs.existsSync(logsDir)) {
 }
 
 // Создаем форматирование для логгера
-const loggerFormat = winston.format.printf(({ level, message, timestamp }) => {
+const loggerFormat = winston.format.printf(({level, message, timestamp}) => {
   return `${timestamp} [${level.toUpperCase()}]: ${message}`;
 });
 
@@ -23,7 +23,7 @@ const loggerFormat = winston.format.printf(({ level, message, timestamp }) => {
 const logger = winston.createLogger({
   level: 'info', // Минимальный уровень логирования
   format: winston.format.combine(
-    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    winston.format.timestamp({format: 'YYYY-MM-DD HH:mm:ss'}),
     loggerFormat
   ),
   transports: [
@@ -40,8 +40,8 @@ const logger = winston.createLogger({
     new winston.transports.Console({
       level: 'info',
       format: winston.format.combine(
-        winston.format.timestamp({ format: 'HH:mm:ss' }), // Форматируем время без даты
-        winston.format.printf(({ level, message, timestamp }) => {
+        winston.format.timestamp({format: 'HH:mm:ss'}), // Форматируем время без даты
+        winston.format.printf(({level, message, timestamp}) => {
           if (level === 'error') {
             return `[${timestamp}] Ошибка записана в лог.`;
           }
