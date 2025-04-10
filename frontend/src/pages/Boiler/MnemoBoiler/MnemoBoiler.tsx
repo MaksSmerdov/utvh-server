@@ -9,7 +9,8 @@ import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage.tsx';
 import styles from './MnemoBoiler.module.scss';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import ParamDisplay from './components/ParamDisplay.tsx';
-import { imLabels } from './configBoiler.tsx';
+import { alarmLabels, imLabels, infoLabels, staticLabels } from './components/configBoiler.ts';
+import Valve from '../../../components/Valve/Valve.tsx';
 
 export const MnemoBoiler: React.FC = () => {
   const { id } = useParams();
@@ -38,13 +39,56 @@ export const MnemoBoiler: React.FC = () => {
         <ParamDisplay data={data} tooltipsEnabled={tooltipsEnabled} />
 
         {imLabels.map((label) => {
-          const value = data.im[`${label.key}`];
+          const value = data.im[`${label.name}`];
           return (
-            <div key={label.key} className={`${styles['im']} ${styles[label.className]}`}>
+            <div key={label.name} className={`${styles['im']} ${styles[label.className]}`}>
               {value} %
             </div>
           );
         })}
+        {alarmLabels.map((label) => {
+          const alarmState = data.alarms[`${label.key}`];
+          const alarmClass = alarmState
+            ? `${styles[label.className]} ${styles['alarm__active']}`
+            : `${styles[label.className]} ${styles['alarm__inactive']}`;
+          return (
+            <div key={label.key} className={`${styles['mnemo__alarm']} ${alarmClass}`}>
+              <div className={styles['mnemo__alarm-text']}>{label.name}</div>
+            </div>
+          );
+        })}
+
+        {infoLabels.map((label) => {
+          const infoState = data.info[`${label.key}`];
+          const infoClass = infoState
+            ? `${styles[label.className]} ${styles['info__active']}`
+            : `${styles[label.className]} ${styles['info__inactive']}`;
+          return (
+            <div key={label.name} className={`${styles['mnemo__alarm']} ${infoClass}`}>
+              <div className={styles['mnemo__alarm-text']}>{label.name}</div>
+            </div>
+          );
+        })}
+        {staticLabels.map((label) => {
+          return (
+            <div key={label.name} className={`${styles['mnemo__descr']} ${styles[label.className]}`}>
+              {label.name}
+            </div>
+          );
+        })}
+
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-1']}`}>
+          <Valve orientation="horizontal" value={data.im['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-2']}`}>
+          <Valve value={data.im['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-3']}`}>
+          <Valve value={data.im['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-4']}`}>
+          <Valve reverseColorLogic={true} value={data.im['Клапан отсекатель']} />
+        </div>
 
       </div>
     </>
