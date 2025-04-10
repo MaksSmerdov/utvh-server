@@ -1,20 +1,15 @@
 @use "../../../styles/mixins" as mixins;
 @use "../../../styles/variables" as vars;
 
-.mnemoContainer {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-
-  &.visible {
-    opacity: 1;
-  }
-}
-
 .mnemo {
-  margin-left: 10px;
-  margin-top: 15px;
   position: relative;
-  width: 1316px;
+  width: 1000px;
+
+  &__control {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
 
   &__param {
     position: absolute;
@@ -25,7 +20,7 @@
     @include mixins.text-style(14px, 16px, 600);
     transition: box-shadow 0.5s ease;
 
-    &.enabledHover {
+    &.enabled {
       cursor: pointer;
 
       &:hover {
@@ -151,107 +146,107 @@
   line-height: 14px;
   @include mixins.text-style(16px, 14px, 600, vars.$black);
 
-  &Uroven {
+  &__level {
     top: 28.5%;
     left: 60.5%;
     color: vars.$blue;
   }
 
-  &Razrezhenie {
+  &__vacuum {
     top: 61%;
     left: 65.8%;
   }
 
-  &Vozduh {
+  &__vozduh {
     top: 71%;
     left: 7.2%;
   }
 
-  &Gaz {
+  &__gaz {
     top: 46%;
     left: 11.5%;
   }
 }
 
-.Param {
-  &DavlenieGaza {
-    top: 40%;
-    left: 23%;
-  }
 
-  &DavlenieVozduha {
-    top: 63%;
-    left: 23%;
-  }
-
-  &DavleniePara {
-    top: 17.5%;
-    left: 44%;
-  }
-
-  &Razrezhenie {
-    top: 63%;
-    left: 44%;
-  }
-
-  &Uroven {
-    top: 28%;
-    left: 31%;
-  }
+.davlenie-gaza {
+  top: 43%;
+  left: 30%;
 }
 
+.davlenie-vozduha {
+  top: 63%;
+  left: 30%;
+}
+
+.davlenie-para {
+  top: 21%;
+  left: 57%;
+}
+
+.vacuum {
+  top: 63%;
+  left: 57%;
+}
+
+.level {
+  top: 31%;
+  left: 41%;
+}
+
+
 .alarm {
-  &Active {
+  &__active {
     background-color: vars.$red; // Красный фон для активного состояния
     color: vars.$black;
   }
 
-  &Inactive {
+  &__inactive {
     background-color: vars.$grey; // Серый фон для неактивного состояния
     color: vars.$black;
   }
 
-  &VozduhNizko {
+  &__vozduh-low {
     top: 5.5%;
     left: 5.1%;
   }
 
-  &GazNizko {
+  &__gaz-low {
     top: 5.5%;
     left: 12.5%;
   }
 
-  &GazVisoko {
+  &__gaz-hight {
     top: 5.5%;
     left: 19.8%;
   }
 
-  &UrovenNizko {
+  &__level-low {
     top: 5.5%;
     left: 27.2%;
   }
 
-  &UrovenVisoko {
+  &__level-high {
     top: 5.5%;
     left: 34.6%;
   }
 
-  &FakelPogas {
+  &__torch-disappeared {
     top: 5.5%;
     left: 41.9%;
   }
 
-  &RazrezhenieNizko {
+  &__vacuum-low {
     top: 5.5%;
     left: 49.3%;
   }
 
-  &DimososOff {
+  &__smoke-off {
     top: 5.5%;
     left: 56.7%;
   }
 
-  &OstanovKotla {
+  &__boiler-stop {
     top: 5.5%;
     left: 64%;
   }
