@@ -11,6 +11,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import ParamDisplay from './components/ParamDisplay.tsx';
 import { alarmLabels, imLabels, infoLabels, staticLabels } from './components/configBoiler.ts';
 import Valve from '../../../components/Valve/Valve.tsx';
+import GifDisplay from './components/GifDisplay.tsx';
+import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
 
 export const MnemoBoiler: React.FC = () => {
   const { id } = useParams();
@@ -34,8 +36,22 @@ export const MnemoBoiler: React.FC = () => {
           </Button>
           <Button>Документация</Button>
         </div>
-        <img src="/img/kotelnaya/kotel.png" alt="Котел" className={`${styles['mnemo__img']}`} />
+        <img src="/img/boiler/kotel.png" alt="Котел" className={`${styles['mnemo__img']}`} />
 
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-1']}`}>
+          <Valve orientation="horizontal" status={data.info['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-2']}`}>
+          <Valve status={data.info['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-3']}`}>
+          <Valve status={data.info['Клапан отсекатель']} />
+        </div>
+        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-4']}`}>
+          <Valve reverseColorLogic={true} status={data.info['Клапан отсекатель']} />
+        </div>
+
+        <GifDisplay data={data} />
         <ParamDisplay data={data} tooltipsEnabled={tooltipsEnabled} />
 
         {imLabels.map((label) => {
@@ -77,19 +93,13 @@ export const MnemoBoiler: React.FC = () => {
           );
         })}
 
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-1']}`}>
-          <Valve orientation="horizontal" value={data.im['Клапан отсекатель']} />
+        <div className={`${styles['mnemo__level']}`}>
+          <LevelIndicator
+            value={data.parameters['Уровень в барабане котла']}
+            range={{ min: -100, max: 100 }}
+            threshold={25}
+          />
         </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-2']}`}>
-          <Valve value={data.im['Клапан отсекатель']} />
-        </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-3']}`}>
-          <Valve value={data.im['Клапан отсекатель']} />
-        </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-4']}`}>
-          <Valve reverseColorLogic={true} value={data.im['Клапан отсекатель']} />
-        </div>
-
       </div>
     </>
   );

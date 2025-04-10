@@ -1,5 +1,5 @@
-@use './mixins' as mixins;
-@use './variables' as vars;
+@use "./mixins" as mixins;
+@use "./variables" as vars;
 
 *,
 *::before,
@@ -23,7 +23,7 @@
 
 body {
   padding: 10px 20px;
-  font-family: 'Bitter', sans-serif;
+  font-family: "Bitter", sans-serif;
   font-size: 16px;
   color: #333;
   background-color: rgb(238, 235, 235);
@@ -45,6 +45,27 @@ body {
   border-image: initial;
 }
 
+.level-indicator {
+  background-color: #57b7f7;
+}
+
+.level-indicator.warning {
+  animation: blinkBackground 1s linear infinite;
+}
+
+@keyframes blinkBackground {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: rgba(red, 0.3);
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+
 .table {
   min-width: 50%;
   border-collapse: collapse;
@@ -59,7 +80,7 @@ body {
   &__title {
     margin-bottom: 10px;
     text-align: center;
-    font-family: 'Bitter', sans-serif;
+    font-family: "Bitter", sans-serif;
     @include mixins.text-style(18px, 25px, 700, vars.$hulk);
   }
 
