@@ -7,17 +7,19 @@ import Button from '../../../ui/CustomButton/CustomButton';
 import Loader from '../../../ui/Loader/Loader.tsx';
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage.tsx';
 import styles from './MnemoBoiler.module.scss';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ParamDisplay from './components/ParamDisplay.tsx';
 import { alarmLabels, imLabels, infoLabels, staticLabels } from './components/configBoiler.ts';
 import Valve from '../../../components/Valve/Valve.tsx';
 import GifDisplay from './components/GifDisplay.tsx';
 import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
+import ModalBoiler from './components/ModalBoiler/ModalBoiler.tsx';
 
 export const MnemoBoiler: React.FC = () => {
   const { id } = useParams();
   const { loading, data, error } = useFetchData<BoilerData>(`kotel${id}-data`);
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   if (loading || !data) return <Loader />;
   if (error) return <ErrorMessage />;
@@ -34,7 +36,10 @@ export const MnemoBoiler: React.FC = () => {
             {tooltipsEnabled ? <FaEyeSlash /> : <FaEye />}
             {tooltipsEnabled ? 'Выкл. всплывающие подсказки' : 'Вкл. всплывающие подсказки'}
           </Button>
-          <Button>Документация</Button>
+          <Button onClick={() => setOpenModal(true)}>
+            <FaBook />
+            Документация
+          </Button>
         </div>
         <img src="/img/boiler/kotel.png" alt="Котел" className={`${styles['mnemo__img']}`} />
 
@@ -101,6 +106,7 @@ export const MnemoBoiler: React.FC = () => {
           />
         </div>
       </div>
+      <ModalBoiler open={openModal} onClose={() => setOpenModal(false)} />
     </>
   );
 };
