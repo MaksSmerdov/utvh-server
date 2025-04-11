@@ -2,7 +2,8 @@ import express from 'express';
 
 import logger from '../logger.js';
 import { Kotel1Model, Kotel2Model, Kotel3Model } from '../models/kotelModel.js';
-import { Hvo1Model, Hvo2Model } from '../models/hvoModel.js';
+import { Hvo1Model } from '../models/hvo1Model.js';
+import { Hvo2Model } from '../models/hvo2Model.js';
 
 const router = express.Router();
 
@@ -68,6 +69,5 @@ router.get('/hvo2/data', async (req, res) => {
     res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
-
 
 export default router;

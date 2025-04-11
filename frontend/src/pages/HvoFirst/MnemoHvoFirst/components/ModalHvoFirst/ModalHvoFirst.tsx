@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomModal from '../../../../../ui/CustomModal/CustomModal';
 import CustomAccordion from '../../../../../ui/CustomAccordion/CustomAccordion.tsx';
-import { accordionData, accordionTitles } from './accordionData.ts';
+import { accordionDataHvo1, accordionTitles } from './AccordionItemsHvoFirst.ts';
 import { ModalDocumentationProps } from '../../../../../types/interface.ts';
 
-const ModalBoiler: React.FC<ModalDocumentationProps> = ({ open, onClose }) => {
+const ModalHvoFirst: React.FC<ModalDocumentationProps> = ({ open, onClose }) => {
   return (
     <CustomModal open={open} onClose={onClose} title="Документация">
-      <CustomAccordion accordionData={accordionData} titles={accordionTitles} />
+      <CustomAccordion accordionData={accordionDataHvo1} titles={accordionTitles} />
     </CustomModal>
   );
 };
 
-export default ModalBoiler;
+export default ModalHvoFirst;

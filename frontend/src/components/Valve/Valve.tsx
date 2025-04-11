@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Valve.module.scss';
 
-interface ValveProps {
+export interface ValveProps {
   size?: { width: number; height: number };
   status?: boolean;
   value?: number;

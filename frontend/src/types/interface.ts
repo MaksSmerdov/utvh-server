@@ -1,3 +1,5 @@
+import { HvoFirstData } from './hvoData.ts';
+
 export interface SensorData {
   [key: string]: number;
 }
@@ -12,4 +14,17 @@ export interface KeyItem {
   className: string;
   tooltip?: string;
   unit?: string;
+}
+
+export interface HvoItem {
+  key: string;
+  source: keyof HvoFirstData;
+  className: string;
+  tooltip?: string;
+  unit?: string;
+}
+
+export interface ModalDocumentationProps {
+  open: boolean;
+  onClose: () => void;
 }

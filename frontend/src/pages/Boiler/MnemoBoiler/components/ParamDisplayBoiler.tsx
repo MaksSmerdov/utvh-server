@@ -55,7 +55,7 @@ interface ParamDisplayProps {
   tooltipsEnabled: boolean;
 }
 
-const ParamDisplay: React.FC<ParamDisplayProps> = ({ data, tooltipsEnabled }) => {
+const ParamDisplayBoiler: React.FC<ParamDisplayProps> = ({ data, tooltipsEnabled }) => {
   return (
     <>
       {paramKeys.map((param) => {
@@ -82,4 +82,4 @@ const ParamDisplay: React.FC<ParamDisplayProps> = ({ data, tooltipsEnabled }) =>
   );
 };
 
-export default ParamDisplay;
+export default ParamDisplayBoiler;

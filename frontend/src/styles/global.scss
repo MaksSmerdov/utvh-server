@@ -65,9 +65,9 @@ body {
   }
 }
 
-
 .table {
-  min-width: 50%;
+  max-width: 600px;
+  min-width: 410px;
   border-collapse: collapse;
   box-shadow: 0 0 5px 0 black;
   border: 2px solid green;
@@ -78,9 +78,9 @@ body {
   }
 
   &__title {
+    margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    font-family: "Bitter", sans-serif;
     @include mixins.text-style(18px, 25px, 700, vars.$hulk);
   }
 

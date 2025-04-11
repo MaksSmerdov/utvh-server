@@ -7,7 +7,7 @@ interface GifDisplayProps {
   data: BoilerData;
 }
 
-const GifDisplay: React.FC<GifDisplayProps> = ({ data }) => {
+const GifDisplayBoiler: React.FC<GifDisplayProps> = ({ data }) => {
   const gifConfigs: GifComponentProps[] = [
     {
       src: '/img/boiler/fire-gif.gif',
@@ -65,4 +65,4 @@ const GifDisplay: React.FC<GifDisplayProps> = ({ data }) => {
   );
 };
 
-export default GifDisplay;
+export default GifDisplayBoiler;

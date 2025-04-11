@@ -14,8 +14,7 @@ import kotel3Routes from './routes/kotel3Routes.js';
 import hvo1Routes from './routes/hvo1Routes.js';
 import hvo2Routes from './routes/hvo2Routes.js';
 
-
-import graphicRoutes from './routes/graphicRoutes.js'
+import graphicRoutes from './routes/graphicRoutes.js';
 import { connectDB } from './services/dataBaseService.js';
 import { devicesConfig } from './services/devicesConfig.js';
 
@@ -67,7 +66,7 @@ app.use(express.json());
 app.use('/', pageRoutes);
 
 // Подключение к базе данных
-connectDB();
+void connectDB();
 
 // Создаем карту Modbus-клиентов для каждого COM-порта
 const modbusClients = {};
@@ -82,7 +81,7 @@ const addToQueueWithTimeout = (port, fn, timeout = 10000) => {
     requestQueues[port] = [];
   }
   requestQueues[port].push({ fn, timeout });
-  processQueue(port);
+  void processQueue(port);
 };
 
 // Функция для обработки очереди
@@ -118,13 +117,10 @@ devicesConfig.forEach((device) => {
   if (!modbusClients[port]) {
     modbusClients[port] = new Client(port, baudRate, timeout, retryInterval, maxRetries, unstable);
 
-    modbusClients[port]
-      .connect()
-      .then(() => logger.info(`Успешное подключение к порту ${port}`))
-      .catch((err) => {
-        logger.error(`Ошибка при начальном подключении к порту ${port}:`, err);
-        // Здесь можно вызвать функцию переподключения, если необходимо
-      });
+    modbusClients[port].connect().then(() => logger.info(`Успешное подключение к порту ${port}`)).catch((err) => {
+      logger.error(`Ошибка при начальном подключении к порту ${port}:`, err);
+      // Здесь можно вызвать функцию переподключения, если необходимо
+    });
   }
 });
 
@@ -146,8 +142,8 @@ const pollDevices = async (devices, client, port) => {
           logger.error(`[${deviceLabel}] Ошибка при опросе устройства:`, err);
           return { deviceLabel, success: false, error: err.message };
         }
-      })
-    )
+      }),
+    ),
   );
 
   // Лог результатов
@@ -184,7 +180,7 @@ const startDataRetrieval = async () => {
     };
 
     // Запуск первоначального опроса
-    retrieveData();
+    void retrieveData();
 
     // Устанавливаем интервал для периодического опроса
     setInterval(retrieveData, 10000);
@@ -192,7 +188,7 @@ const startDataRetrieval = async () => {
 };
 
 // Запускаем опрос данных Modbus
-startDataRetrieval();
+void startDataRetrieval();
 
 // Используем маршруты
 app.use('/api', kotel1Routes);
@@ -213,11 +209,11 @@ app.get('/config.js', (req, res) => {
 });
 
 // Настройка статической папки после слияния с react
-app.use(express.static(path.join(__dirname, '../../react-project-utvh/build/')));
+app.use(express.static(path.join(__dirname, '../../frontend/build/')));
 
 // Для всех остальных маршрутов отправляем index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../react-project-utvh/build/index.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
 });
 
 // Запуск сервера

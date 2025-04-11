@@ -5,7 +5,7 @@ export interface GifComponentProps {
   className: string;
   value: number | boolean;
   conditionType?: 'boolean' | 'greaterThan' | 'lessThan' | 'equals';
-  compareValue?: number | boolean;
+  compareValue?: number;
   isAnimation?: boolean;
 }
 

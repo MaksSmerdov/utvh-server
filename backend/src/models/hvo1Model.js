@@ -1,13 +1,17 @@
 import mongoose from 'mongoose';
 
 const hvoDataSchema = new mongoose.Schema({
-  parameters: Object,
+  pressures: Object,
+  flows: Object,
+  levels: Object,
+  frequency: Object,
+  task: Object,
+  others: Object,
   lastUpdated: Date,
 });
 
 const Hvo1Model = mongoose.model('hvo1Models', hvoDataSchema);
-const Hvo2Model = mongoose.model('hvo2Models', hvoDataSchema);
 
 hvoDataSchema.index({ lastUpdated: 1 });
 
-export { Hvo1Model, Hvo2Model };
+export { Hvo1Model };

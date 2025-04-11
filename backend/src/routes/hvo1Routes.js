@@ -1,5 +1,5 @@
 import express from 'express';
-import { Hvo1Model } from '../models/hvoModel.js';
+import { Hvo1Model } from '../models/hvo1Model.js';
 import logger from '../logger.js';
 
 const router = express.Router();
@@ -22,27 +22,27 @@ router.get('/hvo1-data', async (req, res) => {
     // Если данные устарели, заменяем их на прочерки
     const responseData = isDataOutdated
       ? {
-          parameters: mapValuesToDash(data[0].parameters), // Заменяем значения на прочерки
-          lastUpdated: new Date(data[0].lastUpdated).toLocaleString('ru-RU', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-          }),
-        }
+        parameters: mapValuesToDash(data[0].parameters), // Заменяем значения на прочерки
+        lastUpdated: new Date(data[0].lastUpdated).toLocaleString('ru-RU', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        }),
+      }
       : {
-          ...data[0]._doc,
-          lastUpdated: new Date(data[0].lastUpdated).toLocaleString('ru-RU', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-          }),
-        };
+        ...data[0]._doc,
+        lastUpdated: new Date(data[0].lastUpdated).toLocaleString('ru-RU', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        }),
+      };
 
     // Отправляем данные клиенту
     res.json(responseData);

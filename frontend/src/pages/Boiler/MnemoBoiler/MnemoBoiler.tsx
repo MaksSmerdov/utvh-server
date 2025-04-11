@@ -8,14 +8,14 @@ import Loader from '../../../ui/Loader/Loader.tsx';
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage.tsx';
 import styles from './MnemoBoiler.module.scss';
 import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
-import ParamDisplay from './components/ParamDisplay.tsx';
+import ParamDisplayBoiler from './components/ParamDisplayBoiler.tsx';
 import { alarmLabels, imLabels, infoLabels, staticLabels } from './components/configBoiler.ts';
-import Valve from '../../../components/Valve/Valve.tsx';
-import GifDisplay from './components/GifDisplay.tsx';
+import GifDisplayBoiler from './components/GifDisplayBoiler.tsx';
 import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
 import ModalBoiler from './components/ModalBoiler/ModalBoiler.tsx';
+import ValveDisplayBoiler from './components/ValveDisplayBoiler.tsx';
 
-export const MnemoBoiler: React.FC = () => {
+const MnemoBoiler: React.FC = () => {
   const { id } = useParams();
   const { loading, data, error } = useFetchData<BoilerData>(`kotel${id}-data`);
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
@@ -43,21 +43,9 @@ export const MnemoBoiler: React.FC = () => {
         </div>
         <img src="/img/boiler/kotel.png" alt="Котел" className={`${styles['mnemo__img']}`} />
 
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-1']}`}>
-          <Valve orientation="horizontal" status={data.info['Клапан отсекатель']} />
-        </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-2']}`}>
-          <Valve status={data.info['Клапан отсекатель']} />
-        </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-3']}`}>
-          <Valve status={data.info['Клапан отсекатель']} />
-        </div>
-        <div className={`${styles['mnemo__valve']} ${styles['mnemo__valve-4']}`}>
-          <Valve reverseColorLogic={true} status={data.info['Клапан отсекатель']} />
-        </div>
-
-        <GifDisplay data={data} />
-        <ParamDisplay data={data} tooltipsEnabled={tooltipsEnabled} />
+        <ParamDisplayBoiler data={data} tooltipsEnabled={tooltipsEnabled} />
+        <ValveDisplayBoiler valveStatus={data.info['Клапан отсекатель']} />
+        <GifDisplayBoiler data={data} />
 
         {imLabels.map((label) => {
           const value = data.im[`${label.name}`];
@@ -110,3 +98,5 @@ export const MnemoBoiler: React.FC = () => {
     </>
   );
 };
+
+export default MnemoBoiler;

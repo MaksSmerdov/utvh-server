@@ -357,8 +357,11 @@
 }
 
 @media (max-width: 1280px) {
+  .mnemo__level {
+    top: 28.5%;
+    left: 35.5%;
+  }
   .im {
-
     &__level {
       top: 30.5%;
     }
@@ -369,7 +372,6 @@
   }
 
   .mnemo__valve {
-
     &-1 {
       top: 429px;
     }
