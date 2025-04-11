@@ -1,4 +1,4 @@
-import {BooleanSensorData, SensorData} from "./interface.ts";
+import { BooleanSensorData, SensorData } from './interface.ts';
 
 export interface BoilerData {
   _id: string;

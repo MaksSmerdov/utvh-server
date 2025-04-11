@@ -10,6 +10,7 @@ import { labels } from './components/Labels/labels.ts';
 import Button from '../../../ui/CustomButton/CustomButton.tsx';
 import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ModalHvoSecond from './components/ModalHvoSecond/ModalHvoSecond.tsx';
+import GifDisplayHvoSecond from './components/Display/GifDisplayHvoSecond.tsx';
 
 const MnemoHvoSecond: React.FC = () => {
   const { loading, data, error } = useFetchData<HvoSecondData>(`hvo2-data`);
@@ -38,6 +39,7 @@ const MnemoHvoSecond: React.FC = () => {
         </div>
         <img src="/img/hvo/hvo2.png" alt="ХВО2" className={styles['mnemo__img']} />
         <StaticLabels labels={labels} />
+        <GifDisplayHvoSecond data={data} />
       </div>
       <ModalHvoSecond open={openModal} onClose={() => setOpenModal(false)} />
     </>

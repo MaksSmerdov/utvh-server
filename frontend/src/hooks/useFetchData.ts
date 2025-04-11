@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { API_BASE_URL } from '../apiConfig.ts';
 
 export const useFetchData = <T>(
-  api: string
+  api: string,
 ): { loading: boolean; data: T | null; error: boolean } => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<T | null>(null);
