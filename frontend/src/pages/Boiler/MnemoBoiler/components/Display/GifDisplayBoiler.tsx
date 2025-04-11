@@ -1,7 +1,7 @@
 import React from 'react';
-import GifComponent, { GifComponentProps } from '../../../../components/GifComponent/GifComponent.tsx';
-import styles from '../MnemoBoiler.module.scss';
-import { BoilerData } from '../../../../types/boilerData.ts';
+import GifComponent, { GifComponentProps } from '../../../../../components/GifComponent/GifComponent.tsx';
+import styles from './styles/GifDisplayBoiler.module.scss';
+import { BoilerData } from '../../../../../types/boilerData.ts';
 
 interface GifDisplayProps {
   data: BoilerData;

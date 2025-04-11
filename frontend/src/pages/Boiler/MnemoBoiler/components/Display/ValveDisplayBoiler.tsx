@@ -1,6 +1,6 @@
 import React from 'react';
-import Valve from '../../../../components/Valve/Valve.tsx';
-import styles from '../MnemoBoiler.module.scss';
+import Valve from '../../../../../components/Valve/Valve.tsx';
+import styles from './styles/ValveDisplayBoiler.module.scss';
 
 interface ValveDisplayProps {
   valveStatus: boolean;

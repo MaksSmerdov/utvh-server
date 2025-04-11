@@ -24,6 +24,11 @@ export interface HvoItem {
   unit?: string;
 }
 
+export interface LabelItem {
+  text: string;
+  className: string;
+}
+
 export interface ModalDocumentationProps {
   open: boolean;
   onClose: () => void;

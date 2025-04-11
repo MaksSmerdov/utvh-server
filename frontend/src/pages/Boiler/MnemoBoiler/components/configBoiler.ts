@@ -33,10 +33,3 @@ export const imLabels: KeyItem[] = [
   { name: `ИМ воздуха`, className: 'im__vozduh' },
   { name: `ИМ газа`, className: 'im__gaz' },
 ];
-
-export const valves = [
-  { orientation: 'horizontal', className: 'mnemo__valve-1' },
-  { orientation: 'vertical', className: 'mnemo__valve-2' },
-  { orientation: 'vertical', className: 'mnemo__valve-3' },
-  { orientation: 'vertical', className: 'mnemo__valve-4' },
-];

@@ -5,7 +5,7 @@ import Loader from '../../../ui/Loader/Loader.tsx';
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage.tsx';
 import Header from '../../../components/Header/Header.tsx';
 import styles from './MnemoHvoFirst.module.scss';
-import StaticDisplayHvoFirst from './components/Display/StaticDisplayHvoFirst.tsx';
+import { labels } from './components/Labels/labels.ts';
 import ParamDisplayHvoFirst from './components/Display/ParamDisplayHvoFirst.tsx';
 import Button from '../../../ui/CustomButton/CustomButton.tsx';
 import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -14,6 +14,7 @@ import Valve from '../../../components/Valve/Valve.tsx';
 import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
 import SymbolsDisplayHvoFirst from './components/Display/SymbolsDisplayHvoFirst.tsx';
 import ModalHvoFirst from './components/ModalHvoFirst/ModalHvoFirst.tsx';
+import StaticLabels from '../../../components/StaticLabels/StaticLabels.tsx';
 
 const MnemoHvoFirst: React.FC = () => {
   const { loading, data, error } = useFetchData<HvoFirstData>(`hvo1-data`);
@@ -49,7 +50,7 @@ const MnemoHvoFirst: React.FC = () => {
           />
         </div>
         <GifDisplayHvoFirst data={data} />
-        <StaticDisplayHvoFirst />
+        <StaticLabels labels={labels} />
         <ParamDisplayHvoFirst data={data} tooltipsEnabled={tooltipsEnabled} />
 
         <div className={`${styles['mnemo__level-1']}`}>

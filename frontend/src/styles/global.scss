@@ -65,6 +65,24 @@ body {
   }
 }
 
+.mnemo {
+  &__param-descr {
+    margin: 0;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    @include mixins.text-style(14px, 14px, 600, vars.$hunter-green);
+  }
+
+  @media (max-width: 1280px) {
+    &__param-descr {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}
+
 .table {
   max-width: 600px;
   min-width: 410px;

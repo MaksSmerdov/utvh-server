@@ -11,50 +11,6 @@
     gap: 5px;
   }
 
-  &__param {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid vars.$black;
-    border-radius: 3px;
-    @include mixins.text-style(14px, 16px, 600);
-    transition: box-shadow 0.5s ease;
-    z-index: 2;
-
-    &.enabled {
-      cursor: pointer;
-
-      &:hover {
-        box-shadow: 0 0 10px 4px rgba(0, 128, 0, 0.5);
-        background-color: rgba(0, 255, 0, 0.1);
-        transition: box-shadow 0.5s ease;
-      }
-    }
-
-    &-naimenov {
-      background-color: vars.$hulk;
-      color: black;
-      padding: 3px;
-      border-bottom: 1px solid vars.$black;
-    }
-
-    &-text {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      background-color: rgb(197, 192, 192);
-      padding: 3px;
-    }
-
-    &-value {
-      color: vars.$blue;
-    }
-
-    &-span {
-      color: vars.$black;
-    }
-  }
-
   &__level {
     position: absolute;
     width: 42px;
@@ -96,84 +52,6 @@
 
 }
 
-.mnemo__valve {
-  position: absolute;
-
-  &-1 {
-    top: 438px;
-    left: 150px;
-  }
-
-  &-2 {
-    top: 175px;
-    left: 83px;
-  }
-
-  &-3 {
-    top: 300px;
-    left: 83px;
-  }
-
-  &-4 {
-    top: 175px;
-    left: 167px;
-  }
-}
-
-.mnemo__gif {
-  position: absolute;
-  z-index: 1;
-
-  &-1 {
-    top: 46.6%;
-    left: 32.5%;
-    width: 280px;
-    height: 101px;
-  }
-
-  &-2,
-  &-3,
-  &-4 {
-    width: 45px;
-    height: 45px;
-    animation: rotate 1s infinite linear;
-    animation-play-state: paused;
-  }
-
-  &-2 {
-    bottom: 19.8%;
-    left: 19%;
-  }
-
-  &-3 {
-    bottom: 19.8%;
-    right: 4.3%;
-  }
-
-  &-4 {
-    top: 39.7%;
-    left: 86.5%;
-  }
-
-  &-5 {
-    top: 57.5%;
-    left: 32%;
-    rotate: 50deg;
-  }
-
-  &-6 {
-    top: 56.7%;
-    left: 29.6%;
-  }
-
-  &-7 {
-    right: 3.9%;
-    top: 17%;
-    width: 40px;
-    height: 80px;
-  }
-}
-
 .im {
   position: absolute;
   font-size: 16px;
@@ -203,44 +81,26 @@
   }
 }
 
-
-.davlenie-gaza {
-  top: 43%;
-  left: 30%;
-}
-
-.davlenie-vozduha {
-  top: 63%;
-  left: 30%;
-}
-
-.davlenie-para {
-  top: 21%;
-  left: 57%;
-}
-
-.vacuum {
-  top: 63%;
-  left: 57%;
-}
-
-.level {
-  top: 31%;
-  left: 41%;
-}
-
-
-.alarm {
+.lamp {
   &__active {
-    background-color: vars.$red;
-    color: vars.$black;
+    &-red {
+      background-color: vars.$red;
+      color: vars.$black;
+    }
+
+    &-green {
+      background-color: vars.$hulk;
+      color: vars.$black;
+    }
   }
 
   &__inactive {
     background-color: vars.$grey;
     color: vars.$black;
   }
+}
 
+.alarm {
   &__vozduh-low {
     top: 9.5%;
     left: 6.7%;
@@ -288,15 +148,6 @@
 }
 
 .info {
-  &__active {
-    background-color: vars.$hulk;
-    color: vars.$black;
-  }
-
-  &__inactive {
-    background-color: vars.$grey;
-    color: vars.$black;
-  }
 
   &__boiler-stop {
     bottom: 5.1%;
@@ -346,16 +197,6 @@
   }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @media (max-width: 1280px) {
   .mnemo__level {
     top: 28.5%;
@@ -369,56 +210,6 @@
     &__gaz {
       top: 47%;
     }
-  }
-
-  .mnemo__valve {
-    &-1 {
-      top: 429px;
-    }
-
-    &-2 {
-      left: 82px;
-    }
-
-    &-3 {
-      top: 290px;
-    }
-
-    &-4 {
-      left: 166px;
-    }
-  }
-
-  .mnemo__gif {
-    &-1 {
-      top: 46.1%;
-    }
-
-    &-4 {
-      top: 39.1%;
-      left: 86.6%;
-    }
-
-    &-6 {
-      top: 56.2%;
-      left: 29.6%;
-    }
-
-    &-7 {
-      top: 16%;
-    }
-  }
-
-  .davlenie-gaza {
-    top: 42%;
-  }
-
-  .davlenie-para {
-    top: 20.5%;
-  }
-
-  .level {
-    top: 30%;
   }
 
   .alarm {

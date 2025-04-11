@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../MnemoBoiler.module.scss';
-import TooltipWrapper from '../../../../ui/Tooltip/Tooltip.tsx';
-import { KeyItem } from '../../../../types/interface.ts';
-import { BoilerData } from '../../../../types/boilerData.ts';
+import styles from './styles/ParamDisplayBoiler.module.scss';
+import TooltipWrapper from '../../../../../ui/Tooltip/Tooltip.tsx';
+import { KeyItem } from '../../../../../types/interface.ts';
+import { BoilerData } from '../../../../../types/boilerData.ts';
 
 const tooltips: Record<string, string> = {
   davlenieGaza: 'Прибор: ПД-1М.1И\nДиапазон: 0...40 кПа\nТоковый выход: 4 - 20 мА',

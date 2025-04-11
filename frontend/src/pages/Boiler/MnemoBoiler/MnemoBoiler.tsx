@@ -8,12 +8,12 @@ import Loader from '../../../ui/Loader/Loader.tsx';
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage.tsx';
 import styles from './MnemoBoiler.module.scss';
 import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
-import ParamDisplayBoiler from './components/ParamDisplayBoiler.tsx';
+import ParamDisplayBoiler from './components/Display/ParamDisplayBoiler.tsx';
 import { alarmLabels, imLabels, infoLabels, staticLabels } from './components/configBoiler.ts';
-import GifDisplayBoiler from './components/GifDisplayBoiler.tsx';
+import GifDisplayBoiler from './components/Display/GifDisplayBoiler.tsx';
 import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
 import ModalBoiler from './components/ModalBoiler/ModalBoiler.tsx';
-import ValveDisplayBoiler from './components/ValveDisplayBoiler.tsx';
+import ValveDisplayBoiler from './components/Display/ValveDisplayBoiler.tsx';
 
 const MnemoBoiler: React.FC = () => {
   const { id } = useParams();
@@ -58,8 +58,8 @@ const MnemoBoiler: React.FC = () => {
         {alarmLabels.map((label) => {
           const alarmState = data.alarms[`${label.key}`];
           const alarmClass = alarmState
-            ? `${styles[label.className]} ${styles['alarm__active']}`
-            : `${styles[label.className]} ${styles['alarm__inactive']}`;
+            ? `${styles[label.className]} ${styles['lamp__active-red']}`
+            : `${styles[label.className]} ${styles['lamp__inactive']}`;
           return (
             <div key={label.key} className={`${styles['mnemo__alarm']} ${alarmClass}`}>
               <div className={styles['mnemo__alarm-text']}>{label.name}</div>
@@ -70,8 +70,8 @@ const MnemoBoiler: React.FC = () => {
         {infoLabels.map((label) => {
           const infoState = data.info[`${label.key}`];
           const infoClass = infoState
-            ? `${styles[label.className]} ${styles['info__active']}`
-            : `${styles[label.className]} ${styles['info__inactive']}`;
+            ? `${styles[label.className]} ${styles['lamp__active-green']}`
+            : `${styles[label.className]} ${styles['lamp__inactive']}`;
           return (
             <div key={label.name} className={`${styles['mnemo__alarm']} ${infoClass}`}>
               <div className={styles['mnemo__alarm-text']}>{label.name}</div>

@@ -1,7 +1,5 @@
 export const accordionTitles = {
   schemes: 'Схемы объекта',
-  content: 'Руководства по эксплуатации',
-  reglament: 'Регламент объекта',
 };
 
 export const accordionDataHvo2 = {
@@ -133,28 +131,6 @@ export const accordionDataHvo2 = {
         {
           type: 'PDF',
           href: '/content/hvo/schemes2/trace_hvo2.pdf',
-        },
-      ],
-    },
-  ],
-  content: [
-    {
-      name: 'Какое-то руководство',
-      files: [
-        {
-          type: 'PDF',
-          href: '#',
-        },
-      ],
-    },
-  ],
-  reglament: [
-    {
-      name: 'Какая-то документация',
-      files: [
-        {
-          type: 'PDF',
-          href: '#',
         },
       ],
     },
