@@ -11,9 +11,11 @@ export const subtabsConfig: Record<string, SubtabItem[]> = {
   boiler: [
     { label: 'Параметры', value: 'current', icon: <FaTable /> },
     { label: 'Мнемосхема', value: 'mnemo', icon: <FaWrench /> },
-    { label: 'Графики температур', value: 'temperChart', icon: <FaChartBar /> },
-    { label: 'Графики разрежения', value: 'pressureChart', icon: <FaChartBar /> },
     { label: 'Графики уровня', value: 'levelChart', icon: <FaChartBar /> },
+    { label: 'Графики газа', value: 'gazChart', icon: <FaChartBar /> },
+    { label: 'Графики разрежения', value: 'vacuumChart', icon: <FaChartBar /> },
+    { label: 'Графики воздуха', value: 'airChart', icon: <FaChartBar /> },
+    { label: 'Графики пара', value: 'steamChart', icon: <FaChartBar /> },
   ],
   hvo: [
     { label: 'Параметры', value: 'current', icon: <FaTable /> },

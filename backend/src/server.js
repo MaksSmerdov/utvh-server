@@ -209,11 +209,11 @@ app.get('/config.js', (req, res) => {
 });
 
 // Настройка статической папки после слияния с react
-app.use(express.static(path.join(__dirname, '../../frontend/build/')));
+app.use(express.static(path.join(__dirname, '../../frontend/dist/')));
 
 // Для всех остальных маршрутов отправляем index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
 // Запуск сервера

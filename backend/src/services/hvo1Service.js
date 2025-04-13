@@ -12,7 +12,7 @@ export const readDataHvo1 = async (modbusClient, deviceID, deviceLabel) => {
       'Давление воды после насосов H2/1,2': (
         (await modbusClient.readFloat(deviceID, 0x0004, deviceLabel)) * 0.1
       ).toFixed(1),
-      'Давление воды после насосов H3/1,2 для промывки': (
+      'Давление воды после насосов H3/1,2': (
         (await modbusClient.readFloat(deviceID, 0x0006, deviceLabel)) * 0.1
       ).toFixed(1),
     };
@@ -31,22 +31,22 @@ export const readDataHvo1 = async (modbusClient, deviceID, deviceLabel) => {
     };
 
     const frequency = {
-      'Выход РАН давления воды для ПЧ H1/1 (%)': (await modbusClient.readFloat(deviceID, 0x0014, deviceLabel)).toFixed(
+      'Выход РАН давления воды для ПЧ H1/1': (await modbusClient.readFloat(deviceID, 0x0014, deviceLabel)).toFixed(
         0,
       ),
-      'Рабочая частота насоса H1/1 (Гц)': (await modbusClient.readFloat(deviceID, 0x0016, deviceLabel)).toFixed(0),
-      'Выход РАН давления воды для ПЧ H1/2 (%)': (await modbusClient.readFloat(deviceID, 0x0018, deviceLabel)).toFixed(
+      'Рабочая частота насоса H1/1': (await modbusClient.readFloat(deviceID, 0x0016, deviceLabel)).toFixed(0),
+      'Выход РАН давления воды для ПЧ H1/2': (await modbusClient.readFloat(deviceID, 0x0018, deviceLabel)).toFixed(
         0,
       ),
-      'Рабочая частота насоса H1/2 (Гц)': (await modbusClient.readFloat(deviceID, 0x001a, deviceLabel)).toFixed(0),
-      'Выход РАН давления воды для ПЧ H2/1 (%)': (await modbusClient.readFloat(deviceID, 0x001c, deviceLabel)).toFixed(
+      'Рабочая частота насоса H1/2': (await modbusClient.readFloat(deviceID, 0x001a, deviceLabel)).toFixed(0),
+      'Выход РАН давления воды для ПЧ H2/1': (await modbusClient.readFloat(deviceID, 0x001c, deviceLabel)).toFixed(
         0,
       ),
-      'Рабочая частота насоса H2/1 (Гц)': (await modbusClient.readFloat(deviceID, 0x001e, deviceLabel)).toFixed(0),
-      'Выход РАН давления воды для ПЧ H2/2 (%)': (await modbusClient.readFloat(deviceID, 0x0020, deviceLabel)).toFixed(
+      'Рабочая частота насоса H2/1': (await modbusClient.readFloat(deviceID, 0x001e, deviceLabel)).toFixed(0),
+      'Выход РАН давления воды для ПЧ H2/2': (await modbusClient.readFloat(deviceID, 0x0020, deviceLabel)).toFixed(
         0,
       ),
-      'Рабочая частота насоса H2/2 (Гц)': (await modbusClient.readFloat(deviceID, 0x0022, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H2/2': (await modbusClient.readFloat(deviceID, 0x0022, deviceLabel)).toFixed(0),
     };
     const task = {
       'Задание уровня воды в емкостях E1/1,2': (await modbusClient.readFloat(deviceID, 0x0024, deviceLabel)).toFixed(0),

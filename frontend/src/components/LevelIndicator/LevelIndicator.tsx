@@ -7,9 +7,10 @@ interface LevelIndicatorProps {
     max: number;
   };
   threshold?: number;
+  color?: string;
 }
 
-const LevelIndicator: React.FC<LevelIndicatorProps> = ({ value, range, threshold = 25 }) => {
+const LevelIndicator: React.FC<LevelIndicatorProps> = ({ value, range, threshold = 25, color = '#57b7f7' }) => {
   const isValidLevel = !isNaN(value);
   const totalRange = range.max - range.min;
 
@@ -30,6 +31,7 @@ const LevelIndicator: React.FC<LevelIndicatorProps> = ({ value, range, threshold
         bottom: '0',
         height: `${fillPercentage}%`,
         transition: 'height 0.5s ease-in-out',
+        backgroundColor: color,
       }}
     />
   );

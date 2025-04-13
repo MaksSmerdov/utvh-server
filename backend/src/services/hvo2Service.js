@@ -35,13 +35,13 @@ export const readDataHvo2 = async (modbusClient, deviceID, deviceLabel) => {
       'Уровень воды в E2/2 (Мида)': (await modbusClient.readFloat(deviceID, 0x000A, deviceLabel) * 60 + 820).toFixed(0),
     };
     const frequency = {
-      'Рабочая частота насоса H4/1 (Гц)': (await modbusClient.readFloat(deviceID, 0x002C, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H4/2 (Гц)': (await modbusClient.readFloat(deviceID, 0x002E, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H5/1 (Гц)': (await modbusClient.readFloat(deviceID, 0x0030, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H5/2 (Гц)': (await modbusClient.readFloat(deviceID, 0x0032, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H6/1 (Гц)': (await modbusClient.readFloat(deviceID, 0x0034, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H6/2 (Гц)': (await modbusClient.readFloat(deviceID, 0x0036, deviceLabel)).toFixed(0),
-      'Рабочая частота насоса H6/3 (Гц)': (await modbusClient.readFloat(deviceID, 0x0038, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H4/1': (await modbusClient.readFloat(deviceID, 0x002C, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H4/2': (await modbusClient.readFloat(deviceID, 0x002E, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H5/1': (await modbusClient.readFloat(deviceID, 0x0030, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H5/2': (await modbusClient.readFloat(deviceID, 0x0032, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H6/1': (await modbusClient.readFloat(deviceID, 0x0034, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H6/2': (await modbusClient.readFloat(deviceID, 0x0036, deviceLabel)).toFixed(0),
+      'Рабочая частота насоса H6/3': (await modbusClient.readFloat(deviceID, 0x0038, deviceLabel)).toFixed(0),
     };
     const others = {
       'Контроль положения ИМ2': (await modbusClient.readFloat(deviceID, 0x000C, deviceLabel)).toFixed(0),

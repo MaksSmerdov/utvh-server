@@ -54,6 +54,24 @@
     color: vars.$black;
   }
 
+  &__level {
+    position: absolute;
+    width: 47px;
+    height: 91px;
+  }
+
+}
+
+.e2-1 {
+  &-titan {
+    bottom: 74.3%;
+    right: 35.6%;
+  }
+
+  &-mida {
+    bottom: 74.3%;
+    right: 31.9%;
+  }
 }
 
 
@@ -238,6 +256,11 @@
     &__gif-img {
       width: 25px;
       height: 25px;
+    }
+
+    &__level {
+      width: 39px;
+      height: 75px;
     }
   }
 

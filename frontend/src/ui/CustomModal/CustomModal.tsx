@@ -8,14 +8,15 @@ interface CustomModalProps extends Omit<ModalProps, 'children'> {
   children: React.ReactNode;
 }
 
+
 const CustomModal: React.FC<CustomModalProps> = ({
-  open,
-  onClose,
-  title,
-  width = '700px',
-  children,
-  ...rest
-}) => {
+                                                   open,
+                                                   onClose,
+                                                   title,
+                                                   width = '700px',
+                                                   children,
+                                                   ...rest
+                                                 }) => {
   return (
     <Modal
       open={open}

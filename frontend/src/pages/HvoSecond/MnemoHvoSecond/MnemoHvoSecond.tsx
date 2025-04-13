@@ -11,6 +11,8 @@ import Button from '../../../ui/CustomButton/CustomButton.tsx';
 import { FaBook, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ModalHvoSecond from './components/ModalHvoSecond/ModalHvoSecond.tsx';
 import GifDisplayHvoSecond from './components/Display/GifDisplayHvoSecond.tsx';
+import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
+import ParamDisplayHvoSecond from './components/Display/ParamDisplayHvoSecond.tsx';
 
 const MnemoHvoSecond: React.FC = () => {
   const { loading, data, error } = useFetchData<HvoSecondData>(`hvo2-data`);
@@ -39,7 +41,25 @@ const MnemoHvoSecond: React.FC = () => {
         </div>
         <img src="/img/hvo/hvo2.png" alt="ХВО2" className={styles['mnemo__img']} />
         <StaticLabels labels={labels} />
+        <ParamDisplayHvoSecond data={data} tooltipsEnabled={tooltipsEnabled} />
         <GifDisplayHvoSecond data={data} />
+
+        <div className={`${styles['mnemo__level']} ${styles['e2-1-titan']}`}>
+          <LevelIndicator
+            value={data.levels['Уровень воды в E2/1 (Титан)']}
+            range={{ min: 0, max: 6000 }}
+            threshold={0}
+          />
+        </div>
+        <div className={`${styles['mnemo__level']} ${styles['e2-1-mida']}`}>
+          <LevelIndicator
+            value={data.levels['Уровень воды в E2/1 (Мида)']}
+            range={{ min: 0, max: 6000 }}
+            threshold={0}
+            color="blue"
+          />
+        </div>
+
       </div>
       <ModalHvoSecond open={openModal} onClose={() => setOpenModal(false)} />
     </>

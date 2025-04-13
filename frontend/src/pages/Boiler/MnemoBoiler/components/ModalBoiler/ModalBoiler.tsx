@@ -5,10 +5,14 @@ import { accordionData, accordionTitles } from './accordionData.ts';
 import { ModalDocumentationProps } from '../../../../../types/interface.ts';
 
 const ModalBoiler: React.FC<ModalDocumentationProps> = ({ open, onClose }) => {
+  const modalContainerRef = React.useRef(null);
   return (
-    <CustomModal open={open} onClose={onClose} title="Документация">
-      <CustomAccordion accordionData={accordionData} titles={accordionTitles} />
-    </CustomModal>
+    <>
+      <div ref={modalContainerRef} />
+      <CustomModal open={open} onClose={onClose} title="Документация">
+        <CustomAccordion accordionData={accordionData} titles={accordionTitles} />
+      </CustomModal>
+    </>
   );
 };
 

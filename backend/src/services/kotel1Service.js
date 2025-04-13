@@ -36,8 +36,8 @@ export const readDataKotel1 = async (modbusClient, deviceID, deviceLabel) => {
     };
 
     const parameters = {
-      // 'Уровень в барабане котла': ((await modbusClient.readFloat(deviceID, 0x002C, deviceLabel)) * 6.3 +
-      //   (-315)).toFixed(0),
+      'Уровень в барабане котла': ((await modbusClient.readFloat(deviceID, 0x002C, deviceLabel)) * 6.3 +
+        (-315)).toFixed(0),
       // 'Расход питательной воды котла ': ((await modbusClient.readFloat(deviceID, 0x002E, deviceLabel))).toFixed(0) ,
       'Разрежение в топке котла': ((await modbusClient.readFloat(deviceID, 0x0030, deviceLabel)) * 0.25 +
         -(12.5)).toFixed(1),

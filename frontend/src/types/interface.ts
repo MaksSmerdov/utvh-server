@@ -1,4 +1,4 @@
-import { HvoFirstData } from './hvoData.ts';
+import { HvoFirstData, HvoSecondData } from './hvoData.ts';
 
 export interface SensorData {
   [key: string]: number;
@@ -18,7 +18,8 @@ export interface KeyItem {
 
 export interface HvoItem {
   key: string;
-  source: keyof HvoFirstData;
+  sourceFirst?: keyof HvoFirstData;
+  sourceSecond?: keyof HvoSecondData;
   className: string;
   tooltip?: string;
   unit?: string;

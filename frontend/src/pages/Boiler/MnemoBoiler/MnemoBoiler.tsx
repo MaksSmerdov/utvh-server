@@ -95,6 +95,7 @@ const MnemoBoiler: React.FC = () => {
         </div>
       </div>
       <ModalBoiler open={openModal} onClose={() => setOpenModal(false)} />
+      
     </>
   );
 };
