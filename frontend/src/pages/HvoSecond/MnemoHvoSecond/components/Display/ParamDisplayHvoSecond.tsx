@@ -49,13 +49,13 @@ const paramKeys: HvoItem[] = [
     tooltip: 'mida',
     unit: 'кгс/cм²',
   },
-  {
-    key: 'Температура в емкости E2/1 юг',
-    sourceSecond: 'temperatures',
-    className: 'temper-e2-1-ug',
-    tooltip: 'owen',
-    unit: '°C',
-  },
+  // {
+  //   key: 'Температура в емкости E2/1 юг',
+  //   sourceSecond: 'temperatures',
+  //   className: 'temper-e2-1-ug',
+  //   tooltip: 'owen',
+  //   unit: '°C',
+  // },
   {
     key: 'Температура в емкости E2/1 север',
     sourceSecond: 'temperatures',

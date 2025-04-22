@@ -4,11 +4,11 @@ export const handleBackward = (
   setStartTime: (time: Date) => void,
   setEndTime: (time: Date) => void,
   setIsAutoScroll: (autoScroll: boolean) => void,
-  interval: number // Добавляем параметр интервала
+  interval: number,
 ) => {
   setIsAutoScroll(false);
-  const newStartTime = new Date(startTime.getTime() - interval * 60 * 1000); // Используем интервал
-  const newEndTime = new Date(endTime.getTime() - interval * 60 * 1000); // Используем интервал
+  const newStartTime = new Date(startTime.getTime() - interval * 60 * 1000);
+  const newEndTime = new Date(endTime.getTime() - interval * 60 * 1000);
   setStartTime(newStartTime);
   setEndTime(newEndTime);
 };
@@ -19,14 +19,13 @@ export const handleForward = (
   setStartTime: (time: Date) => void,
   setEndTime: (time: Date) => void,
   setIsAutoScroll: (autoScroll: boolean) => void,
-  interval: number // Добавляем параметр интервала
+  interval: number,
 ) => {
-  const newStartTime = new Date(startTime.getTime() + interval * 60 * 1000); // Используем интервал
-  const newEndTime = new Date(endTime.getTime() + interval * 60 * 1000); // Используем интервал
+  const newStartTime = new Date(startTime.getTime() + interval * 60 * 1000);
+  const newEndTime = new Date(endTime.getTime() + interval * 60 * 1000);
   setStartTime(newStartTime);
   setEndTime(newEndTime);
 
-  // Проверяем, вернулся ли пользователь к текущим данным
   const now = new Date();
   if (
     newEndTime.getTime() >= now.getTime() - 30 * 60 * 1000 &&
@@ -42,7 +41,7 @@ export const handleReturnToCurrent = (
   setStartTime: (time: Date) => void,
   setEndTime: (time: Date) => void,
   setIsAutoScroll: (autoScroll: boolean) => void,
-  timeInterval: number // Время интервала в минутах
+  timeInterval: number,
 ) => {
   setIsAutoScroll(true);
   const now = new Date();

@@ -22,7 +22,7 @@ const createDatasets = (url: string): Dataset[] => {
     params: [
       {
         key: `ИМ уровня`,
-        label: 'ИМ уровня',
+        label: 'Процент открытия',
         unit: '%',
       },
     ],

@@ -54,6 +54,12 @@
     color: vars.$black;
   }
 
+  &__valve {
+    position: absolute;
+    top: 8%;
+    right: 33%
+  }
+
   &__level {
     position: absolute;
     width: 47px;

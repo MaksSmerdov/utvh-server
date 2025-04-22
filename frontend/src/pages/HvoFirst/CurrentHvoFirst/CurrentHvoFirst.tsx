@@ -19,7 +19,7 @@ const CurrentHvoFirst: React.FC = () => {
         <CurrentTable sensorData={data.pressures} title="Давления" unit="Бар" />
         <CurrentTable sensorData={data.flows} title="Расходы" unit="м3/ч" />
         <CurrentTable sensorData={data.levels} title="Уровни" unit="мм" />
-        <CurrentTable sensorData={data.frequency} title="Частоты" unit="%" />
+        <CurrentTable sensorData={data.frequency} title="Частоты" unit="% / Гц" />
         <CurrentTable sensorData={data.task} title="Задания" unit="%" />
         <CurrentTable sensorData={data.others} title="Остальные параметры" />
       </div>

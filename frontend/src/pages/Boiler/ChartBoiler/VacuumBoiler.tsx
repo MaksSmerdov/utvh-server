@@ -30,8 +30,8 @@ const VacuumBoiler: React.FC = () => {
             key={`Vacuum ${id}`}
             id={`Boiler Vacuum №${id}`}
             title={title}
-            yMin={-15}
-            yMax={2}
+            yMin={-13}
+            yMax={13}
             datasets={createDatasets(url)}
             showIntervalSelector={showIntervalSelector}
           />

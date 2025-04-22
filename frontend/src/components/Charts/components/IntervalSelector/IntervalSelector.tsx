@@ -5,8 +5,8 @@ import styles from './IntervalSelector.module.scss';
 
 const IntervalSelector: React.FC = () => {
   const { setInterval } = useInterval();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для управления видимостью меню
-  const [menuOpacity, setMenuOpacity] = useState(0); // Состояние для управления opacity меню
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpacity, setMenuOpacity] = useState(0);
 
   const options = [
     { value: 5, label: '5 минут' },
@@ -22,13 +22,13 @@ const IntervalSelector: React.FC = () => {
   // Обработчик открытия меню
   const handleMenuOpen = () => {
     setIsMenuOpen(true);
-    setTimeout(() => setMenuOpacity(1), 10); // Задержка для плавного появления
+    setTimeout(() => setMenuOpacity(1), 10);
   };
 
   // Обработчик закрытия меню
   const handleMenuClose = () => {
     setMenuOpacity(0); // Сначала анимация исчезновения
-    setTimeout(() => setIsMenuOpen(false), 300); // Задержка перед скрытием меню
+    setTimeout(() => setIsMenuOpen(false), 300);
   };
 
   return (
@@ -37,12 +37,12 @@ const IntervalSelector: React.FC = () => {
       <Select
         options={options}
         onChange={handleIntervalChange}
-        defaultValue={options[1]}
+        defaultValue={options[3]}
         classNamePrefix="react-select"
         isSearchable={false}
-        onMenuOpen={handleMenuOpen} // Обработчик открытия меню
-        onMenuClose={handleMenuClose} // Обработчик закрытия меню
-        menuIsOpen={isMenuOpen} // Управление видимостью меню
+        onMenuOpen={handleMenuOpen}
+        onMenuClose={handleMenuClose}
+        menuIsOpen={isMenuOpen}
         styles={{
           control: (provided) => ({
             ...provided,
@@ -74,8 +74,8 @@ const IntervalSelector: React.FC = () => {
             marginTop: '5px',
             borderRadius: '4px',
             boxShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
-            opacity: menuOpacity, // Управление opacity меню
-            transition: 'opacity 0.3s ease', // Анимация opacity
+            opacity: menuOpacity,
+            transition: 'opacity 0.3s ease',
           }),
         }}
       />

@@ -13,6 +13,7 @@ import ModalHvoSecond from './components/ModalHvoSecond/ModalHvoSecond.tsx';
 import GifDisplayHvoSecond from './components/Display/GifDisplayHvoSecond.tsx';
 import LevelIndicator from '../../../components/LevelIndicator/LevelIndicator.tsx';
 import ParamDisplayHvoSecond from './components/Display/ParamDisplayHvoSecond.tsx';
+import Valve from '../../../components/Valve/Valve.tsx';
 
 const MnemoHvoSecond: React.FC = () => {
   const { loading, data, error } = useFetchData<HvoSecondData>(`hvo2-data`);
@@ -43,6 +44,15 @@ const MnemoHvoSecond: React.FC = () => {
         <StaticLabels labels={labels} />
         <ParamDisplayHvoSecond data={data} tooltipsEnabled={tooltipsEnabled} />
         <GifDisplayHvoSecond data={data} />
+
+        <div className={`${styles['mnemo__valve']}`}>
+          <Valve
+            size={{ width: 20, height: 14 }}
+            orientation={'horizontal'}
+            threshold={5}
+            value={data.others['Контроль положения ИМ2']}
+          />
+        </div>
 
         <div className={`${styles['mnemo__level']} ${styles['e2-1-titan']}`}>
           <LevelIndicator

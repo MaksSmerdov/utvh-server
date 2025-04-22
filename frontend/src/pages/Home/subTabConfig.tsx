@@ -20,7 +20,7 @@ export const subtabsConfig: Record<string, SubtabItem[]> = {
   hvo: [
     { label: 'Параметры', value: 'current', icon: <FaTable /> },
     { label: 'Мнемосхема', value: 'mnemo', icon: <FaWrench /> },
-    { label: 'Графики температур', value: 'temperChart', icon: <FaChartBar /> },
-    { label: 'Графики разрежения', value: 'vacuumChart', icon: <FaChartBar /> },
+    { label: 'Графики уровня', value: 'levelChart', icon: <FaChartBar /> },
+    { label: 'Графики расхода', value: 'flowChart', icon: <FaChartBar /> },
   ],
 };

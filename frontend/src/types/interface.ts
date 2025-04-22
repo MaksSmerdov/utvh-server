@@ -8,6 +8,11 @@ export interface BooleanSensorData {
   [key: string]: boolean;
 }
 
+export interface SensorParameter {
+  label: string;
+  unit?: string;
+}
+
 export interface KeyItem {
   key?: string;
   name?: string;

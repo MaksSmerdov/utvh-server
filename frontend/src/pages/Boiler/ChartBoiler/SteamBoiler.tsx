@@ -31,7 +31,7 @@ const SteamBoiler: React.FC = () => {
             id={`Boiler Steam №${id}`}
             title={title}
             yMin={0}
-            yMax={40}
+            yMax={10}
             datasets={createDatasets(url)}
             showIntervalSelector={showIntervalSelector}
           />
